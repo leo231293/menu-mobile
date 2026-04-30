@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header id="header">
+        <a id="logo" href="#">Logo</a>
+        <nav id="nav">
+            <button aria-label="Abrir menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">menu
+                <span id="hamburger"></span>
+            </button>
+            <ul id="menu" role="menu">
+                <li><a href="/">Rota 1</a></li>
+                <li><a href="/">Rota 2</a></li>
+                <li><a href="/">Rota 3</a></li>
+                <li><a href="/">Rota 4</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
+<script>
+        const btnMobile = document.getElementById('btn-mobile');
+
+        function toggleMenu(event) {
+            if(event.type === 'touchstart') event.preventDefaut();
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+            const active = nav.classList.contains('active');
+            event.currentTarget.setAttribute('aria-expanded' ,'active');
+            if (active) { 
+            event.currentTarget.setAttribute('aria - label','fechar menu');
+            } else {
+                event.currentTarget.setAttribute('aria - label','Abrir menu');
+            }
+        }
+
+        btnMobile.addEventListener('click', toggleMenu);
+        btnMobile.addEventListener('touchstart', toggleMenu);
+    </script>
+</body>
+</html>
+
